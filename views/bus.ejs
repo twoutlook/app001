@@ -26,16 +26,16 @@
        <form name="myForm">
          <label for="repeatSelect"> 請按車牌任意選擇一輛: </label>
          <select name="repeatSelect" id="repeatSelect" ng-model="data.repeatSelect">
-           <option ng-repeat="msg in messages " value="{{msg.BusID}}">{{msg.BusID}} {{$id}}</option>
+           <option ng-repeat="msg in messages " value="{{msg.BusID}}">{{msg.BusID}} </option>
          </select>
        </form>
    <hr>
    根據 Data.Taipei <a target="_blank" href="http://data.taipei/opendata/datalist/datasetMeta?oid=c84f781f-02e7-45a4-84c2-0fc690749f66">定時車機資訊</a>
 
-   , 車牌號<strong> {{data.repeatSelect}}</strong>的<br/>
+   , 車牌號<strong> {{data.repeatSelect}}</strong>的<br/>原始資料是:{{quantityResult}}
 
-   <button ng-click="calculateQuantity(data.repeatSelect)">Calculate</button>
-  <h2>原始資料是:{{quantityResult}}</h2>
+   <button ng-click="calculateQuantity(data.repeatSelect)">立即查看</button>
+  <h2></h2>
 
 
   </body>
