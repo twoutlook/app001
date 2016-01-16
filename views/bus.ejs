@@ -32,10 +32,16 @@
    <hr>
    根據 Data.Taipei <a target="_blank" href="http://data.taipei/opendata/datalist/datasetMeta?oid=c84f781f-02e7-45a4-84c2-0fc690749f66">定時車機資訊</a>
 
-   , 車牌號<strong> {{data.repeatSelect}}</strong>的<br/>原始資料是:{{quantityResult}}
-
+   , 車牌號<strong> {{data.repeatSelect}}</strong>的<br/>原始資料是:
    <button ng-click="calculateQuantity(data.repeatSelect)">立即查看</button>
-  <h2></h2>
+  <h2>???{{quantityResult.d01162131}}
+    <!-- <select name="repeatSelect" id="repeatSelect" ng-model="data.repeatSelect">
+      <option ng-repeat="msg1 in quantityResult " value="{{msg1.BusID}}">{{msg1.BusID}} </option>
+    </select> -->
+
+
+
+</h2>
 
 
   </body>
