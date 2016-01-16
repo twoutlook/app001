@@ -121,7 +121,7 @@ function fetch_one_set_and_show_json_problem(opt_set) {
                             loc['lat']=bus.Latitude;
                             loc['lon']=bus.Longitude;
 
-                            var day = moment.unix(getUnixTimestamp(busDt)).format('YYYY-MM-DD HH:mm:ss');
+                            var day = moment.unix(getTwUnixTimestamp(busDt)).format('YYYY-MM-DD HH:mm:ss');
 
                             loc['dt']=day;
 
