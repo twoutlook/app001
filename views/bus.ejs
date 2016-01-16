@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="sampleApp">
+  <head>
+    <title><%= title %></title>
+      <!-- Mark's note, by express -->
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+
+    <!-- Firebase -->
+    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
+
+
+     <script src="javascripts/app-bus.js"></script>
+  </head>
+  <body  ng-controller="SampleCtrl">
+    <h1>諾得捷思隊<%= title %></h1>
+
+   <h3>現有 {{ messages.length }} 輛公車在路上</h3>
+    <!-- anything typed in here is magically saved to our Firebase database! -->
+
+       <form name="myForm">
+         <label for="repeatSelect"> 請按車牌任意選擇一輛: </label>
+         <select name="repeatSelect" id="repeatSelect" ng-model="data.repeatSelect">
+           <option ng-repeat="msg in messages " value="{{msg.BusID}}">{{msg.BusID}} {{$id}}</option>
+         </select>
+       </form>
+   <hr>
+   根據 Data.Taipei <a target="_blank" href="http://data.taipei/opendata/datalist/datasetMeta?oid=c84f781f-02e7-45a4-84c2-0fc690749f66">定時車機資訊</a>
+
+   , 車牌號<strong> {{data.repeatSelect}}</strong>的<br/>
+
+   <button ng-click="calculateQuantity(data.repeatSelect)">Calculate</button>
+  <h2>原始資料是:{{quantityResult}}</h2>
+
+
+  </body>
+</html>
