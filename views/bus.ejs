@@ -28,23 +28,29 @@
     <form name="myForm1">
       <label for="selectCar"> 請按車牌任意選擇一輛: </label>
       <select name="selectCar" id="selectCar" ng-model="data.selectCar"  >
-        <option ng-repeat="msg in messages " value=" {{msg.$id}} "> {{msg.$id}}  </option>
+        <!-- <option ng-repeat="msg in messages " value=" {{msg.$id}} "> {{msg.$id}}  </option> -->
+        <option ng-repeat="msg in messages " value=" {{msg.carNum}} "> {{msg.carNum}}  </option>
       </select>
+      <button ng-click="check(data.selectCar)">Check!</button>
     </form>
 <hr>
 車牌號<strong> {{data.selectCar}}</strong>的資料是
 <hr>
 xxx
-<!-- <ul ng-repeat="msg in messages " ng-show="$index =={{data.selectCar}}" > -->
-<!-- <ul ng-repeat="msg in messages " ng-show="msg.$id=={{data.selectCar}}" > -->
-  <ul ng-repeat="msg in messages " ng-show="msg.$id=='001-FQ'" >
+
+
+
+
+<ul ng-repeat="msg in messages2 "  >
+  <li>  [{{msg.$id}}]  {{msg.dt}} ({{msg.lat}}, {{msg.lon}})</li>
+</ul>
+  <!-- <ul ng-repeat="msg in messages " ng-show="msg.$id=='001-FQ'" >
 
 
   <li>  {{msg.$id}}
       <ul ng-repeat="data in msg " >
         <li>  ({{$parent.$index}} , {{$index}}) => {{data.$id}} => {{data.lat}},{{data.lat}},{{data.dt}}</li>
 </ul></ul>
-
     <!-- <ul ng-repeat="msg in messages " >
       <!-- <li>  {{msg.$id}} => {{msg.d01170852.lat}}</li>
       <li>  {{msg.$id}} </li>
