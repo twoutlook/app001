@@ -16,14 +16,48 @@
 
 
      <script src="javascripts/app-bus.js"></script>
+
+
   </head>
   <body  ng-controller="SampleCtrl">
     <h1>諾得捷思隊<%= title %></h1>
 
-   <h3>現有 {{ messages.length }} 輛公車在路上</h3>
+   <h3>zzzxxx現有 {{ messages.length }} 輛公車在資料庫裡</h3>
     <!-- anything typed in here is magically saved to our Firebase database! -->
 
-       <form name="myForm">
+    <form name="myForm1">
+      <label for="selectCar"> 請按車牌任意選擇一輛: </label>
+      <select name="selectCar" id="selectCar" ng-model="data.selectCar"  >
+        <option ng-repeat="msg in messages " value=" {{msg.$id}} "> {{msg.$id}}  </option>
+      </select>
+    </form>
+<hr>
+車牌號<strong> {{data.selectCar}}</strong>的資料是
+<hr>
+xxx
+<!-- <ul ng-repeat="msg in messages " ng-show="$index =={{data.selectCar}}" > -->
+<!-- <ul ng-repeat="msg in messages " ng-show="msg.$id=={{data.selectCar}}" > -->
+  <ul ng-repeat="msg in messages " ng-show="msg.$id=='001-FQ'" >
+
+
+  <li>  {{msg.$id}}
+      <ul ng-repeat="data in msg " >
+        <li>  ({{$parent.$index}} , {{$index}}) => {{data.$id}} => {{data.lat}},{{data.lat}},{{data.dt}}</li>
+</ul></ul>
+
+    <!-- <ul ng-repeat="msg in messages " >
+      <!-- <li>  {{msg.$id}} => {{msg.d01170852.lat}}</li>
+      <li>  {{msg.$id}} </li>
+
+      <ul ng-repeat="data in msg " >
+              <li>  {{data.$id}} => {{data.lat}},{{data.lat}},{{data.dt}}</li>
+      </ul>
+
+
+    </ul> -->
+
+
+       <!-- <form name="myForm">
          <label for="repeatSelect"> 請按車牌任意選擇一輛: </label>
          <select name="repeatSelect" id="repeatSelect" ng-model="data.repeatSelect">
            <option ng-repeat="msg in messages " value="{{msg.BusID}}">{{msg.BusID}} </option>
@@ -33,15 +67,17 @@
    根據 Data.Taipei <a target="_blank" href="http://data.taipei/opendata/datalist/datasetMeta?oid=c84f781f-02e7-45a4-84c2-0fc690749f66">定時車機資訊</a>
 
    , 車牌號<strong> {{data.repeatSelect}}</strong>的<br/>原始資料是:
-   <button ng-click="calculateQuantity(data.repeatSelect)">立即查看</button>
-  <h2>???{{quantityResult.d01162131}}
+   <button onclick="f001()">立即查看</button>
+  <h2>???</h2>
+
+    <div id="demo"></div> -->
+
     <!-- <select name="repeatSelect" id="repeatSelect" ng-model="data.repeatSelect">
       <option ng-repeat="msg1 in quantityResult " value="{{msg1.BusID}}">{{msg1.BusID}} </option>
     </select> -->
 
 
 
-</h2>
 
 
   </body>

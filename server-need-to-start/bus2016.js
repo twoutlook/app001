@@ -161,7 +161,7 @@ fbRef.authWithCustomToken(token, function(error, authData) {
     console.log("fbRef Login Succeeded! To start schedule!", authData);
     var j = schedule.scheduleJob('* * * * *', function(){ // per min
     var timeStampByMin=getTimeStampByMin()
-      // console.log("timeStampByMin => " + timeStampByMin);
+      // console.log("timeStampByMin => " + timeStampByMin+" DO NOTHING HERE!");
 
       // fbRef.set(null);
       fetch_one_set_and_show_json_problem( get_option(urlSrc) );
